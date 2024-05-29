@@ -1,6 +1,10 @@
 #  import phone numbers after pip install
 import phonenumbers
 
+#  import opencage to view location
+import opencage
+from opencage.geocoder import OpenCageGeocode
+
 # import phone number from myphone
 from myphone import number
 
@@ -9,6 +13,8 @@ from phonenumbers import geocoder
 
 # import carrier to view the service provider
 from phonenumbers import carrier
+
+
 
 # 
 pepnumber = phonenumbers.parse(number)
@@ -21,3 +27,17 @@ print(location)
 # viewing the service provider 
 service_provider = phonenumbers.parse(number)
 print(carrier.name_for_number(service_provider, 'en'))
+
+api_key = 'eb394b806fe54a228d2d2bf492bfaed4'
+
+geocoder = OpenCageGeocode(api_key)
+
+query = str(location)
+results = geocoder.geocode(query)
+# print(results)
+
+# extract just the latitude and the longitude 
+latitude = results[0]['geometry']['lat']
+longitude = results[0]['geometry']['lng'] 
+
+print(latitude, longitude)
