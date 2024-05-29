@@ -17,6 +17,8 @@ from phonenumbers import geocoder
 # import carrier to view the service provider
 from phonenumbers import carrier
 
+from api_key import api_key
+
 
 
 # 
@@ -31,7 +33,7 @@ print(location)
 service_provider = phonenumbers.parse(number)
 print(carrier.name_for_number(service_provider, 'en'))
 
-api_key = 'eb394b806fe54a228d2d2bf492bfaed4'
+
 
 geocoder = OpenCageGeocode(api_key)
 
@@ -50,4 +52,3 @@ folium.Marker([latitude, longitude], popup=location).add_to(myMap)
 
 # save the information in a file
 myMap.save("mylocation.html")
-
