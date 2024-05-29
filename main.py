@@ -47,3 +47,7 @@ print(latitude, longitude)
 
 myMap = folium.Map(location=[latitude, longitude], zoom_start=9)
 folium.Marker([latitude, longitude], popup=location).add_to(myMap)
+
+# save the information in a file
+myMap.save("mylocation.html")
+
