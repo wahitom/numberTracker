@@ -5,6 +5,9 @@ import phonenumbers
 import opencage
 from opencage.geocoder import OpenCageGeocode
 
+# import folium
+import folium
+
 # import phone number from myphone
 from myphone import number
 
@@ -41,3 +44,6 @@ latitude = results[0]['geometry']['lat']
 longitude = results[0]['geometry']['lng'] 
 
 print(latitude, longitude)
+
+myMap = folium.Map(location=[latitude, longitude], zoom_start=9)
+folium.Marker([latitude, longitude], popup=location).add_to(myMap)
